@@ -5,34 +5,34 @@
       <!-- mainCont -->
       <section id="mainCont">
         <div class="main__cont">
-          <div>{{ msg1 }}</div>
-          <div>{{ msg2 }}</div>
-          <div>{{ msg3 }}</div>
-          <div>{{ msg4 }}</div>
+          <div v-for="todo in todos" v-bind:key="todo.text">
+            {{ todo.text }}
+          </div>
         </div>
       </section>
       <!-- //mainCont -->
     </main>
   </div>
 </template>
-
 <script>
 import Header from "@/components/Header.vue";
-
 export default {
   components: {
     Header,
   },
-  data() {
+  data: function () {
     return {
-      msg1: "WE PROVIDE",
-      msg2: "VISUAL CODING",
-      msg3: "SOLUTION",
-      msg4: "FOR YOU WEBS",
+      todos: [
+        { text: "we provide" },
+        { text: "visual coding" },
+        { text: "solutions" },
+        { text: "for you webs" },
+      ],
     };
   },
 };
 </script>
+
 <style lang="scss" scoped>
 #mainCont {
   height: 100vh;
